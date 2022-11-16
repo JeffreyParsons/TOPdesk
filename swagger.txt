@@ -1,0 +1,324 @@
+swagger: '2.0'
+info: {title: TOPdesk, description: Custom Connector for all TOPdesk related API calls,
+  version: '1.0'}
+host: ccisd-test.topdesk.net
+basePath: /tas/api/
+schemes: [https]
+consumes: []
+produces: []
+paths:
+  /persons:
+    get:
+      responses:
+        default:
+          description: default
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id: {type: string, description: id}
+                status: {type: string, description: status}
+                surName: {type: string, description: surName}
+                firstName: {type: string, description: firstName}
+                dynamicName: {type: string, description: dynamicName}
+                phoneNumber: {type: string, description: phoneNumber}
+                email: {type: string, description: email}
+                jobTitle: {type: string, description: jobTitle}
+                department:
+                  type: object
+                  properties:
+                    id: {type: string, description: id}
+                    name: {type: string, description: name}
+                  description: department
+                employeeNumber: {type: string, description: employeeNumber}
+                networkLoginName: {type: string, description: networkLoginName}
+                mainframeLoginName: {type: string, description: mainframeLoginName}
+                tasLoginName: {type: string, description: tasLoginName}
+                optionalFields1:
+                  type: object
+                  properties:
+                    boolean1: {type: boolean, description: boolean1}
+                    boolean2: {type: boolean, description: boolean2}
+                    boolean3: {type: boolean, description: boolean3}
+                    boolean4: {type: boolean, description: boolean4}
+                    boolean5: {type: boolean, description: boolean5}
+                    number1: {type: integer, format: int32, description: number1}
+                    number2: {type: integer, format: int32, description: number2}
+                    number3: {type: integer, format: int32, description: number3}
+                    number4: {type: integer, format: int32, description: number4}
+                    number5: {type: integer, format: int32, description: number5}
+                    date1: {type: string, description: date1}
+                    date2: {type: string, description: date2}
+                    date3: {type: string, description: date3}
+                    date4: {type: string, description: date4}
+                    date5: {type: string, description: date5}
+                    text1: {type: string, description: text1}
+                    text2: {type: string, description: text2}
+                    text3: {type: string, description: text3}
+                    text4: {type: string, description: text4}
+                    text5: {type: string, description: text5}
+                    memo1: {type: string, description: memo1}
+                    memo2: {type: string, description: memo2}
+                    memo3: {type: string, description: memo3}
+                    memo4: {type: string, description: memo4}
+                    memo5: {type: string, description: memo5}
+                    searchlist1: {type: string, description: searchlist1}
+                    searchlist2: {type: string, description: searchlist2}
+                    searchlist3: {type: string, description: searchlist3}
+                    searchlist4: {type: string, description: searchlist4}
+                    searchlist5: {type: string, description: searchlist5}
+                  description: optionalFields1
+                optionalFields2:
+                  type: object
+                  properties:
+                    boolean1: {type: boolean, description: boolean1}
+                    boolean2: {type: boolean, description: boolean2}
+                    boolean3: {type: boolean, description: boolean3}
+                    boolean4: {type: boolean, description: boolean4}
+                    boolean5: {type: boolean, description: boolean5}
+                    number1: {type: integer, format: int32, description: number1}
+                    number2: {type: integer, format: int32, description: number2}
+                    number3: {type: integer, format: int32, description: number3}
+                    number4: {type: integer, format: int32, description: number4}
+                    number5: {type: integer, format: int32, description: number5}
+                    date1: {type: string, description: date1}
+                    date2: {type: string, description: date2}
+                    date3: {type: string, description: date3}
+                    date4: {type: string, description: date4}
+                    date5: {type: string, description: date5}
+                    text1: {type: string, description: text1}
+                    text2: {type: string, description: text2}
+                    text3: {type: string, description: text3}
+                    text4: {type: string, description: text4}
+                    text5: {type: string, description: text5}
+                    memo1: {type: string, description: memo1}
+                    memo2: {type: string, description: memo2}
+                    memo3: {type: string, description: memo3}
+                    memo4: {type: string, description: memo4}
+                    memo5: {type: string, description: memo5}
+                    searchlist1: {type: string, description: searchlist1}
+                    searchlist2: {type: string, description: searchlist2}
+                    searchlist3: {type: string, description: searchlist3}
+                    searchlist4: {type: string, description: searchlist4}
+                    searchlist5: {type: string, description: searchlist5}
+                  description: optionalFields2
+                branch:
+                  type: object
+                  properties:
+                    id: {type: string, description: id}
+                    name: {type: string, description: name}
+                    clientReferenceNumber: {type: string, description: clientReferenceNumber}
+                    timeZone: {type: string, description: timeZone}
+                    extraA:
+                      type: object
+                      properties:
+                        id: {type: string, description: id}
+                        name: {type: string, description: name}
+                      description: extraA
+                    extraB: {type: string, description: extraB}
+                  description: branch
+                location: {type: string, description: location}
+      operationId: GetUser
+      description: Get User by username
+      parameters:
+      - {name: query, in: query, required: true, type: string, description: Query
+          must be in the following format "tasLoginName==userName"}
+      - {name: archived, in: query, required: true, type: boolean, default: false}
+      summary: Returns user information
+  /assetmgmt/assets:
+    get:
+      responses:
+        default:
+          description: default
+          schema:
+            type: object
+            properties:
+              dataSet:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    text: {type: string, description: text}
+                    '@etag': {type: string, description: '@etag'}
+                    id: {type: string, description: id}
+                    archived: {type: boolean, description: archived}
+                description: dataSet
+      operationId: GetAssetInfo
+      description: Gets asset info
+      summary: Gets asset info
+      parameters:
+      - {name: searchTerm, in: query, required: false, type: string, description: Asset
+          SN}
+      - {name: linkedTo, in: query, required: false, type: string, description: User
+          TOPdesk ID}
+  /assetmgmt/assets/{deviceID}/assignments:
+    get:
+      responses:
+        default:
+          description: default
+          schema:
+            type: object
+            properties:
+              locations:
+                type: array
+                items: {}
+                description: locations
+              persons:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    linkId: {type: string, description: linkId}
+                    person:
+                      type: object
+                      properties:
+                        id: {type: string, description: id}
+                        name: {type: string, description: name}
+                        function: {type: string, description: function}
+                        branchName: {type: string, description: branchName}
+                        avatar: {type: string, description: avatar}
+                        archived: {type: boolean, description: archived}
+                      description: person
+                    linkedObjectType: {type: string, description: linkedObjectType}
+                description: persons
+              numberOfExcessLinks: {type: integer, format: int32, description: numberOfExcessLinks}
+      operationId: GetLinkId
+      summary: Gets link ID
+      description: Returns link ID for the device if one exists
+      parameters:
+      - {name: deviceID, in: path, required: true, type: string}
+  /assetmgmt/assets/assignments:
+    put:
+      responses:
+        default:
+          description: default
+          schema: {}
+      operationId: CreateLink
+      description: Creates a link
+      summary: Creates a link
+      parameters:
+      - name: body
+        in: body
+        required: false
+        schema:
+          type: object
+          properties:
+            assetIds:
+              type: array
+              items: {type: string, title: ''}
+              description: assetIds
+            personId: {type: string, description: personId, title: ''}
+            linkToId: {type: string, description: linkToId, title: ''}
+            linkType: {type: string, description: linkType, title: '', default: person}
+          required: [assetIds, linkToId, linkType, personId]
+  /assetmgmt/assets/{assetId}/assignments/{linkId}:
+    delete:
+      responses:
+        default:
+          description: default
+          schema: {title: '', type: string}
+      operationId: DeleteLink
+      parameters:
+      - {name: assetId, in: path, required: true, type: string}
+      - {name: linkId, in: path, required: true, type: string}
+      summary: Deletes a link between a device and user
+      description: Deletes Link
+  /assetmgmt/assets/unlink/person/{userId}:
+    post:
+      responses:
+        default:
+          description: default
+          schema: {}
+      summary: Removes link
+      operationId: RemoveLink
+      description: Removes link between asset and user
+      parameters:
+      - {name: userId, in: path, required: true, type: string}
+      - name: body
+        in: body
+        required: false
+        schema:
+          type: object
+          properties:
+            assetIds:
+              type: array
+              items: {type: string}
+              description: assetIds
+  /incidents:
+    post:
+      responses:
+        default:
+          description: default
+          schema: {}
+      summary: CreateIncident
+      operationId: CreateIncident
+      parameters:
+      - name: body
+        in: body
+        required: false
+        schema:
+          type: object
+          properties:
+            callerLookup:
+              type: object
+              properties:
+                id: {type: string, description: id, title: CallerLookup}
+              description: callerLookup
+              required: [id]
+            status: {type: string, description: status, title: '', default: firstLine}
+            briefDescription: {type: string, description: briefDescription, title: '',
+              default: Damaged Device}
+            request: {type: string, description: request, title: ''}
+            entryType:
+              type: object
+              properties:
+                id: {type: string, description: id, title: EntryType, default: 9ba14e7a-7070-5bb3-87ac-83829f8aeade}
+              description: entryType
+              required: [id]
+            callType:
+              type: object
+              properties:
+                id: {type: string, description: id, title: CallType, default: 3b4e1c80-be3b-5b35-b6f2-5330a9acdb64}
+              description: callType
+              required: [id]
+            category:
+              type: object
+              properties:
+                id: {type: string, description: id, title: Category, default: 6b55eb9c-02a4-4ebe-9d42-ea8f76b95edc}
+              description: category
+              required: [id]
+            subcategory:
+              type: object
+              properties:
+                id: {type: string, description: id, title: Subcategory, default: 269cd145-30d4-4291-9834-15c26b2d5041}
+              description: subcategory
+              required: [id]
+            operatorGroup:
+              type: object
+              properties:
+                id: {type: string, description: id, title: OperatorGroup}
+              description: operatorGroup
+              required: [id]
+          required: [briefDescription, request, status, callType, callerLookup, category,
+            entryType, operatorGroup, subcategory]
+      description: Creates a Damaged Device Ticket in TOPdesk
+  /assetmgmt/assets/{DeviceTDID}:
+    get:
+      responses:
+        default:
+          description: default
+          schema: {}
+      summary: GetDeviceTemplate
+      description: Use Device TDID to get device template (laptop, hotspot, etc.)
+      operationId: GetDeviceTemplate
+      parameters:
+      - {name: DeviceTDID, in: path, required: true, type: string}
+definitions: {}
+parameters: {}
+responses: {}
+securityDefinitions:
+  basic_auth: {type: basic}
+security:
+- basic_auth: []
+tags: []
